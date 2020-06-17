@@ -26,12 +26,12 @@ public class Spawner {
 			scoreKeep = 0;
 			hud.setLevel(hud.getLevel() + 1);
 			
-			handler.clearEnemies();
-			handler.addObject(new FastSmartEnemy(30, 300, ID.FastSmartEnemy, handler));
-			handler.addObject(new FastSmartEnemy(600, 30, ID.FastSmartEnemy, handler));
+			//handler.clearEnemies();
+			//handler.addObject(new FastSmartEnemy(30, 300, ID.FastSmartEnemy, handler));
+			//handler.addObject(new FastSmartEnemy(600, 30, ID.FastSmartEnemy, handler));
 			
 			
-			/*if(hud.getLevel() == 2) {
+			if(hud.getLevel() == 2) {
 				handler.clearEnemies();
 				handler.addObject(new BasicEnemy(r.nextInt((Game.WIDTH-200)), r.nextInt((Game.HEIGHT-200)), ID.BasicEnemy, handler));
 				handler.addObject(new BasicEnemy(r.nextInt((Game.WIDTH-200)), r.nextInt((Game.HEIGHT-200)), ID.BasicEnemy, handler));
@@ -73,7 +73,7 @@ public class Spawner {
 			}else if(hud.getLevel() == 10) {
 				handler.clearEnemies();
 				handler.addObject(new EnemyBoss((Game.WIDTH / 2) - 48, -120, ID.EnemyBoss, handler));
-			}*/
+			}
 		}
 		
 		//ADDING 3 FAST ENEMIES EVERY 500 TICKS
