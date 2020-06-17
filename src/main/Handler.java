@@ -5,8 +5,10 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 
 public class Handler {
-
+	private boolean firing;
 	LinkedList<GameObject> object = new LinkedList<GameObject>();
+	
+	
 	
 	public void tick() {
 		for(int i = 0; i < object.size(); i++) {
@@ -32,6 +34,7 @@ public class Handler {
 			
 			if(tempObject.getID() == ID.Player) {
 				object.clear();
+				//if(Game.gameState != Game.STATE.End);
 				addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
 			}
 		}
@@ -58,6 +61,9 @@ public class Handler {
 	public void addObject(Rectangle rectangle) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void setFiring(boolean b) {
+		firing = b;
 	}
 	
 }

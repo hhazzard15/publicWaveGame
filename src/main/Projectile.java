@@ -6,6 +6,7 @@ public class Projectile {
 
 	private double speedX, speedY;
 	private int x, y;
+	private float speed = 1.2f;
 	private boolean visible;
 	private Player player;
 		
@@ -28,11 +29,11 @@ public class Projectile {
 		}
 	}
 	
-	public int getX() {
+	public float getX() {
 		return x;
 	}
 	
-	public int getY() {
+	public float getY() {
 		return y;
 	}
 	

@@ -34,8 +34,8 @@ public class SmartEnemy extends GameObject{
 		float diffY = y - player.getY() - 8;
 		float distance = (float) Math.sqrt( (x - player.getX()) * (x - player.getX()) + (y - player.getY()) * (y - player.getY()));
 		
-		velX = ((-1/distance) * diffX);
-		velY = ((-1/distance) * diffY);
+		velX = ((-1/distance) * diffX / 2);
+		velY = ((-1/distance) * diffY / 2);
 		
 		
 		if(y <= 2 || y >= Game.HEIGHT - 45) {

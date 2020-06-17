@@ -8,12 +8,14 @@ import main.Game.STATE;
 public class KeyInput extends KeyAdapter{
 
 	private Handler handler;
+	private Player player;
 	private Game game;
 	private boolean[] keyDown = new boolean[4];
 	
-	public KeyInput(Handler handler, Game game) {
+	public KeyInput(Handler handler, Game game, Player player) {
 		this.handler = handler;
 		this.game = game;
+		this.player = player;
 		
 		keyDown[0] = false;
 		keyDown[1] = false;
@@ -54,6 +56,23 @@ public class KeyInput extends KeyAdapter{
 					handler.clearPlayer();
 				}
 				
+				if(key == KeyEvent.VK_UP) {					
+					handler.setFiring(true);
+				}
+				
+				/*if(key == KeyEvent.VK_DOWN) {					
+					Player.shoot(2);
+				}
+				if(key == KeyEvent.VK_LEFT) {					
+					Player.shoot(3);
+				}
+				if(key == KeyEvent.VK_RIGHT) {					
+					Player.shoot(4);
+				}*/
+				
+				if(key == KeyEvent.VK_UP && key == KeyEvent.VK_LEFT) {
+					return;
+				}
 				
 			}
 			/*if(tempObject.getID() == ID.Player2) {
@@ -65,23 +84,7 @@ public class KeyInput extends KeyAdapter{
 			}*/
 		}
 		
-		switch (e.getKeyCode()) {
-		case KeyEvent.VK_CONTROL:
-			Player.shoot(1);
-		break;
-		case KeyEvent.VK_UP:
-			Player.shoot(2);
-		break;
-		case KeyEvent.VK_DOWN:
-			Player.shoot(1);
-		break;
-		case KeyEvent.VK_LEFT:
-			Player.shoot(3);
-		break;
-		case KeyEvent.VK_RIGHT:
-			Player.shoot(4);
-		break;
-		}
+		
 		
 		if(key == KeyEvent.VK_ESCAPE) System.exit(1);
 	}
@@ -103,19 +106,20 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_S) keyDown[1]=false;//tempObject.setVelY(0);
 				if(key == KeyEvent.VK_A) keyDown[2]=false;//tempObject.setVelX(0);
 				if(key == KeyEvent.VK_D) keyDown[3]=false;//tempObject.setVelX(0);
-				
+				/*if(key == KeyEvent.VK_UP) keyDown[4]=false;//tempObject.setVelX(0);
+				if(key == KeyEvent.VK_DOWN) keyDown[5]=false;//tempObject.setVelX(0);
+				if(key == KeyEvent.VK_LEFT) keyDown[6]=false;//tempObject.setVelX(0);
+				if(key == KeyEvent.VK_RIGHT) keyDown[7]=false;//tempObject.setVelX(0);*/
 				//vertical movement
 				if(!keyDown[0] && !keyDown[1]) tempObject.setVelY(0);
 				//horizontal movement
 				if(!keyDown[2] && !keyDown[3]) tempObject.setVelX(0);
+				
+				if(key == KeyEvent.VK_UP) {					
+					handler.setFiring(false);
+				}
 			}
-			if(tempObject.getID() == ID.Player2) {
-				//key events for player2
-				if(key == KeyEvent.VK_UP) tempObject.setVelY(0);
-				if(key == KeyEvent.VK_DOWN) tempObject.setVelY(0);
-				if(key == KeyEvent.VK_LEFT) tempObject.setVelX(0);
-				if(key == KeyEvent.VK_RIGHT) tempObject.setVelX(0);
-			}
+			
 		}
 	}
 

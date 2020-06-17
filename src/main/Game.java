@@ -34,23 +34,27 @@ public class Game extends Canvas implements Runnable{
 	public Game() {
 		handler = new Handler();
 		hud = new HUD();
-		spawner = new Spawner(handler, hud);
+		
 		menu = new Menu(this, handler, hud);
-		this.addKeyListener(new KeyInput(handler, this)); //TELLS THE GAME TO PREPARE FOR KEY INPUT
+		this.addKeyListener(new KeyInput(handler, this, player)); //TELLS THE GAME TO PREPARE FOR KEY INPUT
 		this.addMouseListener(menu);
 
+		AudioPlayer.load();
+		
+		AudioPlayer.getMusic("music").loop();
+		
 		new Window(WIDTH, HEIGHT, "go go power rangers", this);//HERE WE SET THE SIZE OF THE GAME WINDOW AND THE TITLE
 		
 		
 		
-		menu = new Menu(this, handler, hud);
+		//menu = new Menu(this, handler, hud);
 		
-		
+		spawner = new Spawner(handler, hud);
 		r = new Random();
 		
 		if(gameState == STATE.Game) {
-			handler.addObject(new Player(HEIGHT/2, WIDTH/2 -100, ID.Player, handler));
-			handler.addObject(new BasicEnemy(r.nextInt((Game.WIDTH-200)), r.nextInt((Game.HEIGHT-200)), ID.BasicEnemy, handler));
+			//handler.addObject(new Player(HEIGHT/2, WIDTH/2 -100, ID.Player, handler));
+			//handler.addObject(new BasicEnemy(r.nextInt((Game.WIDTH-200)), r.nextInt((Game.HEIGHT-200)), ID.BasicEnemy, handler));
 		}else {
 			for(int i = 0; i < 20; i++) {
 				handler.addObject(new MenuParticle(r.nextInt(WIDTH-200), r.nextInt(HEIGHT-200), ID.MenuParticle, handler));
@@ -130,8 +134,14 @@ public class Game extends Canvas implements Runnable{
 			
 			if(HUD.HEALTH <= 0) {
 				HUD.HEALTH = 100;
-				handler.clearEnemies();
+				hud.setLevel(1);
+				//hud.setScore(0);
+				handler.object.clear();
 				gameState = STATE.End;
+				
+				for(int i = 0; i < 20; i++) {
+					handler.addObject(new MenuParticle(r.nextInt(WIDTH-200), r.nextInt(HEIGHT-200), ID.MenuParticle, handler));
+				}
 			}
 		}else if(gameState == STATE.Menu || gameState == STATE.End) {
 			menu.tick();
@@ -157,7 +167,7 @@ public class Game extends Canvas implements Runnable{
 		for(int i = 0; i < projectiles.size(); i++) {
 			Projectile p = (Projectile) projectiles.get(i);
 			g.setColor(Color.orange);
-			g.fillRect(p.getX(),p.getY(), 16, 16);
+			g.fillRect((int)p.getX(),(int)p.getY(), 16, 16);
 		}
 			
 		handler.render(g);
