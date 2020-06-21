@@ -1,19 +1,20 @@
 package main;
 
 import java.awt.Color;
+
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+
 
 public class Bullet {
 
 	private	double x;
 	private	double y;
 	private	int r;
-	private Handler handler;
+
 	private double dx;
 	private double dy;
 	private	double rad;
-	private	double speed;
+
 	
 	private Color color1;
 	
@@ -26,7 +27,7 @@ public class Bullet {
 		rad = Math.toRadians(angle);
 		dx = Math.cos(rad);
 		dy = Math.sin(rad);
-		speed = 15;
+
 		
 		color1 = Color.yellow;
 	}

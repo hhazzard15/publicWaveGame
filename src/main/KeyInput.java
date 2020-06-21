@@ -3,19 +3,21 @@ package main;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import org.lwjgl.openal.AL;
+
 import main.Game.STATE;
 
 public class KeyInput extends KeyAdapter{
 
 	private Handler handler;
-	private Player player;
+	//private Player player;
 	private Game game;
 	private boolean[] keyDown = new boolean[4];
 	
 	public KeyInput(Handler handler, Game game, Player player) {
 		this.handler = handler;
 		this.game = game;
-		this.player = player;
+		//this.player = player;
 		
 		keyDown[0] = false;
 		keyDown[1] = false;
@@ -86,7 +88,10 @@ public class KeyInput extends KeyAdapter{
 		
 		
 		
-		if(key == KeyEvent.VK_ESCAPE) System.exit(1);
+		if(key == KeyEvent.VK_ESCAPE) {
+			
+			System.exit(1);
+		}
 	}
 
 	

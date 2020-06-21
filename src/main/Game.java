@@ -41,7 +41,7 @@ public class Game extends Canvas implements Runnable{
 
 		AudioPlayer.load();
 		
-		AudioPlayer.getMusic("music").loop();
+		//AudioPlayer.getMusic("music").loop();
 		
 		new Window(WIDTH, HEIGHT, "go go power rangers", this);//HERE WE SET THE SIZE OF THE GAME WINDOW AND THE TITLE
 		
@@ -91,7 +91,7 @@ public class Game extends Canvas implements Runnable{
 		double ns = 1000000000 / amountOfTicks;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
-		int frames = 0;
+		//int frames = 0;  ***really don't know if i need to use this later*****
 		while(running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
@@ -102,16 +102,16 @@ public class Game extends Canvas implements Runnable{
 			}
 			if(running)
 				render();
-			frames++;
+			//frames++;     *****
 			
 			if(System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
 				//prfloat out the current FPS the game is running at
 				//System.out.prfloatln("FPS: " + frames);
-				frames = 0;
+				//frames = 0;     *****
 			}
 			
-			ArrayList projectiles = player.getProjectiles();
+			ArrayList<?> projectiles = player.getProjectiles();
 			for(int i = 0; i < projectiles.size(); i++) {
 				Projectile p = (Projectile) projectiles.get(i);
 				if(p.isVisible() == true) {
@@ -163,7 +163,7 @@ public class Game extends Canvas implements Runnable{
 		
 		
 		//PROJECTILES ***************************************************
-		ArrayList projectiles = player.getProjectiles();
+		ArrayList<?> projectiles = player.getProjectiles();
 		for(int i = 0; i < projectiles.size(); i++) {
 			Projectile p = (Projectile) projectiles.get(i);
 			g.setColor(Color.orange);

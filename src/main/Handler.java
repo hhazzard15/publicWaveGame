@@ -5,7 +5,7 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 
 public class Handler {
-	private boolean firing;
+	//private boolean firing;
 	LinkedList<GameObject> object = new LinkedList<GameObject>();
 	
 	
@@ -63,7 +63,7 @@ public class Handler {
 		
 	}
 	public void setFiring(boolean b) {
-		firing = b;
+		//firing = b;
 	}
 	
 }

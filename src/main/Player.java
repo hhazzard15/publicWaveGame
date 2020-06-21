@@ -13,7 +13,7 @@ public class Player extends GameObject{
 	Random r = new Random();
 	Handler handler;
 	private static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-	private double speedX;
+
 	
 	public Player(float x, float y, ID id, Handler handler) {
 		super(x, y, id);
@@ -90,7 +90,7 @@ public class Player extends GameObject{
 		
 	}
 	
-	public ArrayList getProjectiles() {
+	public ArrayList<Projectile> getProjectiles() {
 		return projectiles;
 	}
 	

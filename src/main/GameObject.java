@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public abstract class GameObject {
-	private boolean firing;
+	//private boolean firing;
 	protected float x, y; //protected means that these can only be accessed 
 	protected ID id;    //by the object that inherits the game object
 	protected float velX, velY, bVelX, bVelY;
@@ -13,7 +13,7 @@ public abstract class GameObject {
 		this.x = x;
 		this.y = y;
 		this.id = id;
-		firing = false;
+		//firing = false;
 	}
 	
 	public abstract void tick();
@@ -87,7 +87,7 @@ public abstract class GameObject {
 	}
 	
 	public void setFiring(boolean b) {
-		firing = b;
+		//firing = b;
 	}
 	
 }

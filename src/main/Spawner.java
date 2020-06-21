@@ -18,7 +18,7 @@ public class Spawner {
 	
 	public void tick() {
 		scoreKeep++;
-		scoreKeepF++;
+		setScoreKeepF(getScoreKeepF() + 1);
 		
 		System.out.println(scoreKeep);
 
@@ -85,6 +85,22 @@ public class Spawner {
 			handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH-20), r.nextInt(Game.HEIGHT-20), ID.FastEnemy, handler));
 			handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH-20), r.nextInt(Game.HEIGHT-20), ID.FastEnemy, handler));
 		}*/
+	}
+
+	public int getScoreKeepF() {
+		return scoreKeepF;
+	}
+
+	public void setScoreKeepF(int scoreKeepF) {
+		this.scoreKeepF = scoreKeepF;
+	}
+
+	public int getStartedYet() {
+		return startedYet;
+	}
+
+	public void setStartedYet(int startedYet) {
+		this.startedYet = startedYet;
 	}
 	
 }

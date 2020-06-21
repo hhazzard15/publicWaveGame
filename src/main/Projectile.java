@@ -1,7 +1,5 @@
 package main;
 
-import java.util.ArrayList;
-
 public class Projectile {
 
 	private double speedX, speedY;
@@ -63,6 +61,22 @@ public class Projectile {
 	
 	public void setVisible(boolean visible) {
 		this.visible = visible;
+	}
+
+	public float getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(float speed) {
+		this.speed = speed;
+	}
+
+	public Player getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 	
 }
